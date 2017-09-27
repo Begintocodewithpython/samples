@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<dwml version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd">
+  <head>
+    <product concise-name="dwmlByDay" operational-mode="developmental" srsName="WGS 1984">
+      <creation-date refresh-frequency='PT1H'>2017-07-18T06:12:08-07:00</creation-date>
+     <category>current observations and forecast</category>
+    </product>
+    <source>
+      <production-center>Seattle, WA</production-center>
+      <credit>http://www.wrh.noaa.gov/sew</credit>
+      <more-information>http://www.nws.noaa.gov/forecasts/xml/</more-information>
+    </source>
+  </head>
+  <data type="forecast">
+
+  <location>
+    <location-key>point1</location-key>
+    <description>Downtown Seattle, WA</description>
+    <point latitude="47.61" longitude="-122.32"/>
+    <city state="WA">Downtown Seattle</city>
+    <height datum="mean sea level">240</height>
+  </location>
+<moreWeatherInformation applicable-location="point1">http://forecast.weather.gov/MapClick.php?lat=47.61&amp;lon=-122.32</moreWeatherInformation>
+  <time-layout time-coordinate="local" summarization="12hourly">
+    <layout-key>k-p12h-n13-1</layout-key>
+      <start-valid-time period-name="Today">2017-07-18T08:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Tonight">2017-07-18T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Wednesday">2017-07-19T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Wednesday Night">2017-07-19T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Thursday">2017-07-20T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Thursday Night">2017-07-20T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Friday">2017-07-21T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Friday Night">2017-07-21T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Saturday">2017-07-22T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Saturday Night">2017-07-22T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Sunday">2017-07-23T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Sunday Night">2017-07-23T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Monday">2017-07-24T06:00:00-07:00</start-valid-time>
+  </time-layout>
+
+  <time-layout time-coordinate="local" summarization="12hourly">
+    <layout-key>k-p24h-n7-1</layout-key>
+      <start-valid-time period-name="Today">2017-07-18T08:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Wednesday">2017-07-19T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Thursday">2017-07-20T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Friday">2017-07-21T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Saturday">2017-07-22T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Sunday">2017-07-23T06:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Monday">2017-07-24T06:00:00-07:00</start-valid-time>
+  </time-layout>
+
+  <time-layout time-coordinate="local" summarization="12hourly">
+    <layout-key>k-p24h-n6-2</layout-key>
+      <start-valid-time period-name="Tonight">2017-07-18T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Wednesday Night">2017-07-19T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Thursday Night">2017-07-20T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Friday Night">2017-07-21T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Saturday Night">2017-07-22T18:00:00-07:00</start-valid-time>
+      <start-valid-time period-name="Sunday Night">2017-07-23T18:00:00-07:00</start-valid-time>
+  </time-layout>
+
+
+  <parameters applicable-location="point1">
+
+    <temperature type="maximum" units="Fahrenheit" time-layout="k-p24h-n7-1">
+      <name>Daily Maximum Temperature</name>
+        <value>80</value>
+        <value>79</value>
+        <value>69</value>
+        <value>76</value>
+        <value>79</value>
+        <value>82</value>
+        <value>80</value>
+    </temperature>
+
+    <temperature type="minimum" units="Fahrenheit" time-layout="k-p24h-n6-2">
+      <name>Daily Minimum Temperature</name>
+        <value>56</value>
+        <value>57</value>
+        <value>56</value>
+        <value>56</value>
+        <value>58</value>
+        <value>58</value>
+    </temperature>
+
+    <probability-of-precipitation  type="12 hour" units="percent" time-layout="k-p12h-n13-1">
+      <name>12 Hourly Probability of Precipitation</name>
+        <value xsi:nil="true"></value>
+        <value xsi:nil="true"></value>
+        <value xsi:nil="true"></value>
+        <value xsi:nil="true"></value>
+        <value>40</value>
+        <value>20</value>
+        <value xsi:nil="true"></value>
+        <value xsi:nil="true"></value>
+        <value xsi:nil="true"></value>
+        <value xsi:nil="true"></value>
+        <value xsi:nil="true"></value>
+        <value xsi:nil="true"></value>
+        <value xsi:nil="true"></value>
+    </probability-of-precipitation>
+
+    <weather time-layout="k-p12h-n13-1">
+      <name>Weather Type, Coverage, Intensity</name>
+        <weather-conditions weather-summary="Sunny"/>
+        <weather-conditions weather-summary="Mostly Clear"/>
+        <weather-conditions weather-summary="Sunny"/>
+        <weather-conditions weather-summary="Mostly Cloudy"/>
+        <weather-conditions weather-summary="Chance Showers"/>
+        <weather-conditions weather-summary="Slight Chance Showers then Mostly Cloudy"/>
+        <weather-conditions weather-summary="Partly Sunny"/>
+        <weather-conditions weather-summary="Mostly Cloudy"/>
+        <weather-conditions weather-summary="Partly Sunny"/>
+        <weather-conditions weather-summary="Partly Cloudy"/>
+        <weather-conditions weather-summary="Mostly Sunny"/>
+        <weather-conditions weather-summary="Partly Cloudy"/>
+        <weather-conditions weather-summary="Mostly Sunny"/>
+    </weather>
+
+    <conditions-icon type="forecast-NWS" time-layout="k-p12h-n13-1">
+      <name>Conditions Icon</name>        <icon-link>http://forecast.weather.gov/newimages/medium/few.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/nfew.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/few.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/nbkn.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/shra40.png</icon-link>
+        <icon-link>http://forecast.weather.gov/DualImage.php?i=nshra&amp;j=nbkn&amp;ip=20</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/bkn.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/nbkn.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/bkn.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/nsct.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/sct.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/nsct.png</icon-link>
+        <icon-link>http://forecast.weather.gov/newimages/medium/sct.png</icon-link>
+    </conditions-icon>
+
+    <wordedForecast time-layout="k-p12h-n13-1" dataSource="sewNetcdf" wordGenerator="markMitchell">
+      <name>Text Forecast</name>
+        <text>Sunny, with a high near 80. Calm wind becoming west northwest around 6 mph in the afternoon. </text>
+        <text>Mostly clear, with a low around 56. North wind 8 to 14 mph becoming southeast after midnight. </text>
+        <text>Sunny, with a high near 79. South southwest wind 5 to 11 mph becoming north northeast in the afternoon. </text>
+        <text>Mostly cloudy, with a low around 57. North wind 8 to 14 mph becoming east southeast after midnight. </text>
+        <text>A 40 percent chance of showers.  Partly sunny, with a high near 69. South southwest wind 10 to 16 mph. </text>
+        <text>A 20 percent chance of showers before 11pm.  Mostly cloudy, with a low around 56.</text>
+        <text>Partly sunny, with a high near 76.</text>
+        <text>Mostly cloudy, with a low around 56.</text>
+        <text>Partly sunny, with a high near 79.</text>
+        <text>Partly cloudy, with a low around 58.</text>
+        <text>Mostly sunny, with a high near 82.</text>
+        <text>Partly cloudy, with a low around 58.</text>
+        <text>Mostly sunny, with a high near 80.</text>
+    </wordedForecast>
+
+</parameters>
+</data>
+<data type="current observations">
+	<location>
+		<location-key>point1</location-key>
+		<point latitude="47.54548" longitude="-122.31470"/>
+		<area-description>Boeing Field - King County International Airport, WA</area-description>
+		<height datum="mean sea level" height-units="feet">20</height>
+	</location>
+	<moreWeatherInformation applicable-location="point1">http://www.wrh.noaa.gov/total_forecast/other_obs.php?wfo=sew&amp;zone=WAZ558
+  </moreWeatherInformation>	
+  <time-layout time-coordinate="local">	
+    <layout-key>k-p1h-n1-1</layout-key>	
+    <start-valid-time period-name="current">2017-07-18T08:05:00
+    </start-valid-time>	
+  </time-layout>	
+    <parameters applicable-location="point1">	
+      <temperature type="apparent" units="Fahrenheit" time-layout="k-p1h-n1-1">	
+        <value>
+          63
+        </value>	
+      </temperature>	
+      <temperature type="dew point" units="Fahrenheit" time-layout="k-p1h-n1-1">	
+        <value>
+          52
+        </value>	
+      </temperature>	
+      <humidity type="relative" time-layout="k-p1h-n1-1">	
+        <value>
+          68
+        </value>	
+      </humidity>	
+      <weather time-layout="k-p1h-n1-1">	
+        <name>
+          Weather Type, Coverage, Intensity
+        </name>	
+        <weather-conditions weather-summary="Fair"/>	
+        <weather-conditions>	
+          <value>	
+            <visibility units="statute miles">
+              10.00
+            </visibility>	
+          </value>	
+        </weather-conditions>	
+      </weather>	
+      <conditions-icon type="forecast-NWS" time-layout="k-p1h-n1-1">	
+        <name>Conditions Icon</name>	
+        <icon-link>http://forecast.weather.gov/newimages/medium/sct.png</icon-link>	
+      </conditions-icon>	
+      <direction type="wind" units="degrees true" time-layout="k-p1h-n1-1">	
+        <value>
+          130
+        </value>	
+      </direction>	
+    <wind-speed type="gust" units="knots" time-layout="k-p1h-n1-1">	
+      <value>
+        NA
+      </value>	
+    </wind-speed>	
+      <wind-speed type="sustained" units="knots" time-layout="k-p1h-n1-1">	
+        <value>
+          3
+        </value>	
+      </wind-speed>		
+      <pressure type="barometer" units="inches of mercury" time-layout="k-p1h-n1-1">			
+        <value>
+          30.05
+        </value>		
+      </pressure>	
+    </parameters>
+</data>
+</dwml>
