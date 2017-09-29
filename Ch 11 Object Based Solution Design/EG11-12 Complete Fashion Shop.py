@@ -135,34 +135,34 @@ Size: {2}'''
                                self.size)
  
 
-class Trousers(StockItem):
+class Pants(StockItem):
 
     def __init__(self, stock_ref, price, color, pattern, length, waist, location):
         if StockItem.show_instrumentation:
-            print('** Trousers __init__ called')
+            print('** Pants __init__ called')
         super().__init__(stock_ref=stock_ref, price=price,
                          color=color, location=location)
         self.pattern = pattern
         self.length = length
         self.waist = waist
-        self.trousers_version = 1
+        self.pants_version = 1
 
     @property
     def item_name(self):
         if StockItem.show_instrumentation:
-            print('** Trousers get item_name called')
-        return 'Trousers'
+            print('** Pants get item_name called')
+        return 'Pants'
 
     def check_version(self):
         if StockItem.show_instrumentation:
-            print('** Trousers check_version called')
+            print('** Pants check_version called')
         # This is version 1 - no need to update anything
         super().check_version()
         pass
 
     def __str__(self):
         if StockItem.show_instrumentation:
-            print('** Trousers __str__ called')
+            print('** Pants __str__ called')
         stock_details = super().__str__()
         template = '''{0}
 Pattern: {1}
@@ -172,7 +172,7 @@ Waist: {3}'''
                                self.length, self.waist)
 
 
-class Jeans(Trousers):
+class Jeans(Pants):
 
     def __init__(self, stock_ref, price, color, pattern, length, waist, style, location):
         if StockItem.show_instrumentation:
@@ -199,10 +199,10 @@ class Jeans(Trousers):
     def __str__(self):
         if StockItem.show_instrumentation:
             print('** Jeans __str__ called')
-        trousers_details = super().__str__()
+        pants_details = super().__str__()
         template = '''{0}
 Style: {1}'''
-        return template.format(trousers_details, self.style)
+        return template.format(pants_details, self.style)
 
 
 class Hat(StockItem):
@@ -390,7 +390,7 @@ class FashionShopShellApplication:
 Create new stock item 
 
 1: Dress
-2: Trousers
+2: Pants
 3: Hat
 4: Blouse
 5: Jeans
@@ -411,12 +411,12 @@ What kind of item do you want to add: '''
                                 pattern=pattern,    
                                 size=size)
         elif item == 2:
-            print('Creating a pair of Trousers')
+            print('Creating a pair of Pants')
             stock_details=get_stock_details()
             pattern = read_text('Enter pattern: ')
             length = read_text('Enter length: ')
             waist = read_text('Enter waist: ')
-            stock_item = Trousers(stock_ref=stock_details['stock_ref'],
+            stock_item = Pants(stock_ref=stock_details['stock_ref'],
                                   price=stock_details['price'],
                                   color=stock_details['color'],
                                   location=stock_details['location'],

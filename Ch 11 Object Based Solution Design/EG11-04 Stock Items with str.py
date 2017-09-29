@@ -57,7 +57,7 @@ Size: {2}'''
         return template.format(stock_details, self.pattern,
                                self.size)
 
-class Trousers(StockItem):
+class Pants(StockItem):
 
     def __init__(self, stock_ref, price, color, pattern, length, waist):
         super().__init__(stock_ref=stock_ref, price=price, color=color)

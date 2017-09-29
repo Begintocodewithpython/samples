@@ -17,7 +17,7 @@ class Dress:
     def stock_level(self):
         return self.__stock_level
         
-class Trousers:
+class Pants:
     def __init__(self, stock_ref, price, color, pattern, length, waist):
         self.stock_ref = stock_ref
         self.__price = price
@@ -35,7 +35,7 @@ class Trousers:
     def stock_level(self):
         return self.__stock_level
         
-x = Dress(stock_ref='D01', price=100, color='red', pattern='swirly', size=12)
-y = Trousers(stock_ref='T01', price=50, color='black', pattern='plain', length=30, waist=25)
+x = Dress(stock_ref='D0001', price=100, color='red', pattern='swirly', size=12)
+y = Pants(stock_ref='TR12327', price=50, color='black', pattern='plain', length=30, waist=25)
 print(x.price)
 print(y.stock_level)

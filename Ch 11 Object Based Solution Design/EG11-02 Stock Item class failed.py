@@ -28,6 +28,6 @@ class Dress(StockItem):
         self.size = size
 
 
-x = Dress(stork_ref='D01', price=100, color='red', pattern='swirly', size=12)
+x = Dress(stock_ref='D01', price=100, color='red', pattern='swirly', size=12)
 print(x.pattern)
 print(x.price)

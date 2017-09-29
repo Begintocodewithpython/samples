@@ -68,19 +68,19 @@ Size: {2}'''
         return template.format(stock_details, self.pattern,
                                self.size)
 
-class Trousers(StockItem):
+class Pants(StockItem):
 
     def __init__(self, stock_ref, price, color, pattern, length, waist):
         super().__init__(stock_ref, price, color)
-        self.name = 'Trousers'
+        self.name = 'Pants'
         self.pattern = pattern
         self.length = length
         self.waist = waist
-        self.Trousers_version = 1
+        self.pants_version = 1
 
     @property
     def item_name(self):
-        return 'Trousers'
+        return 'Pants'
 
     def check_version():
         # This is version 1 - no need to update anything
