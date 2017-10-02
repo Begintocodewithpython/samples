@@ -1,4 +1,4 @@
-# EG12-10 Using a BTCImport function
+# EG12-07 Using a BTCImport function
 
 import BTCInput
 

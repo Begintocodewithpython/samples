@@ -1,4 +1,4 @@
-# EG12-09 Aribitrary Arguments
+# EG12-06 Aribitrary Arguments
 
 def add_function(*values): 
     total = 0 

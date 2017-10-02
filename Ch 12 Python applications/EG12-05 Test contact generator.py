@@ -1,4 +1,4 @@
-# EG12-08 Test contact generator
+# EG12-05 Test contact generator
 
 class Contact:
     
