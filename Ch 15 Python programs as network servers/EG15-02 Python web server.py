@@ -6,7 +6,7 @@ class webServerHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         '''
-        This method is calld when the server receives
+        This method is called when the server receives
         a GET requests from the client
         It sends a fixed message back to the client
         '''

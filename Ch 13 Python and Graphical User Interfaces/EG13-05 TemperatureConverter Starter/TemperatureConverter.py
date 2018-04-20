@@ -30,7 +30,7 @@ class Converter(object):
 
         def fah_to_cent():
             '''
-            Convert from fahrenheit to centigrade and display the result
+            Convert from Fahrenheit to centigrade and display the result
             '''
             fah_string = fah_entry.get()
             fah_float = float(fah_string)
@@ -40,7 +40,7 @@ class Converter(object):
 
         def cent_to_fah():
             '''
-            Convert from centigrade to fahrenheit and display the result
+            Convert from centigrade to Fahrenheit and display the result
             '''
             cent_string = cent_entry.get()
             cent_float = float(cent_string)

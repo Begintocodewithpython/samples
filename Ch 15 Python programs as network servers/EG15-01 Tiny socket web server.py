@@ -22,21 +22,21 @@ network_message_bytes = connection.recv(1024)
 html_request_string = network_message_bytes.decode() 
 print(html_request_string)
 
-status = 'HTTP/1.1 200 OK'
+status_string = 'HTTP/1.1 200 OK'
 
-header = '''Content-Type: text/html; charset=UTF-8
+header_string = '''Content-Type: text/html; charset=UTF-8
 Connection: close
 
 '''
 
-content='''<html>
+content_string = '''<html>
 <body>
 <p>hello from our tiny server</p>
 </body></html>
 
 '''
 
-response_string = status + header + content
+response_string = status_string + header_string + content_string
 
 response_bytes = response_string.encode()
 

@@ -4,7 +4,7 @@ from tkinter import *
 
 class Adder(object):
     '''
-    Implementes an adding machine using a the Tkinter GUI
+    Implements an adding machine using the Tkinter GUI
     Call the method display to initiate the display
     '''
     def display(self):
