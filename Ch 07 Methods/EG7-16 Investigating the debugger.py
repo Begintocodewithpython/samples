@@ -1,4 +1,4 @@
-# EG7=16 Investigating the debugger
+# EG7-16 Investigating the debugger
 
 
 def increment_function(input_value):
@@ -8,5 +8,6 @@ def increment_function(input_value):
 
 x = 99
 y = increment_function(x)
+print('The answer is:',y)
 
 
