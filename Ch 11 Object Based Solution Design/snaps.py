@@ -53,7 +53,6 @@ def play_sound(filepath):
     '''
     Plays the specified sound file
     '''
-    global sound_available
 
     try:
     # pre initialise pyGame's audio engine to avoid sound latency issues
