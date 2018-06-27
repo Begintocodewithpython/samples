@@ -19,6 +19,7 @@ def setup(width=800, height=600, title=''):
     global text_color
     global image
     global surface
+    global sound
 
     # Don't initialise if we already have
 
@@ -35,7 +36,13 @@ def setup(width=800, height=600, title=''):
     pygame.init()
 
     # initialise pyGame's audio engine
-    pygame.mixer.init()
+    try:
+        pygame.mixer.init()
+        sound = True
+    except:
+        print("There is no sound provision on this computer.")
+        print("Sound commands will not produce any output")
+        sound = False
 
     # Create the game surface
     surface = pygame.display.set_mode(window_size)
@@ -59,6 +66,8 @@ def play_sound(filepath):
     '''
     Plays the specified sound file
     '''
+    if sound==False:
+        return
     pygame.mixer.init()
     sound = pygame.mixer.Sound(filepath)
     sound.play()
