@@ -4,10 +4,11 @@
 # Version 1.0
 
 import time
+import random
 import pygame
 
 surface = None
-
+sound_available = False
 
 def setup(width=800, height=600, title=''):
     '''
@@ -29,12 +30,7 @@ def setup(width=800, height=600, title=''):
     text_color = (255, 0, 0)
     image = None
 
-    # pre initialise pyGame's audio engine to avoid sound latency issues
-    pygame.mixer.pre_init(frequency=44100)
     pygame.init()
-
-    # initialise pyGame's audio engine
-    pygame.mixer.init()
 
     # Create the game surface
     surface = pygame.display.set_mode(window_size)
@@ -53,25 +49,23 @@ def handle_events():
     for event in pygame.event.get():
         pass
 
-
 def play_sound(filepath):
     '''
     Plays the specified sound file
     '''
-    pygame.mixer.init()
+    global sound_available
+
+    try:
+    # pre initialise pyGame's audio engine to avoid sound latency issues
+        pygame.mixer.pre_init(frequency=44100)
+        pygame.mixer.init()
+    except:
+        print("There is no sound provision on this computer.")
+        print("Sound commands will not produce any output")
+        return
+
     sound = pygame.mixer.Sound(filepath)
     sound.play()
-
-notes_folder = 'MusicNotes'
-
-def play_note(note):
-    '''
-    Plays the sound sample for the requested
-    note
-    '''
-    filepath = notes_folder + '/' + str(note)+'.wav'
-    play_sound(filepath)
-
 
 def display_image(filepath):
     '''
@@ -105,6 +99,8 @@ def clear_display():
     surface.fill(back_color)
     if image is not None:
         surface.blit(image, (0, 0))
+
+    pygame.display.flip()
 
 def split_lines_on_spaces(text):
     '''
@@ -259,6 +255,48 @@ def display_message(text, size=200, margin=20, horiz='center', vert='center',
 
     render_message(text, size=size, margin=margin, horiz=horiz, vert=vert, color=color)
 
+def get_dot():
+    '''
+    Waits for a mouse movement and then returns it
+    as a tuple of x and y coordinates
+    '''
+    setup()
+    while True:
+        event = pygame.event.wait()
+        if event.type == 4:
+            # Event 4 is mouse motion
+            pos = event.dict['pos']
+            return pos
+
+BLACK = (  0,   0,   0)
+WHITE = (255, 255, 255)
+BLUE =  (  0,   0, 255)
+GREEN = (  0, 255,   0)
+RED =   (255,   0,   0)
+YELLOW =   (255,   255,   0)
+MAGENTA =   (255,   0,   255)
+CYAN =   (0,   255,   255)
+ 
+dot_color = WHITE
+
+def set_color(r,g,b):
+    dot_color = (r,g,b)
+
+def set_random_color():
+    global dot_color
+    dot_color = (random.randint(0,255),
+                 random.randint(0,255),
+                 random.randint(0,255))
+
+def get_mouse_pressed():
+    return pygame.mouse.get_pressed()[0]
+
+
+def draw_dot(pos, radius):
+    setup()
+    pygame.draw.circle(surface, dot_color, pos, radius)
+    pygame.display.flip()
+
 
 def get_key():
     '''
@@ -379,4 +417,5 @@ def get_weather_desciption(latitude,longitude):
                                     if t.tag == 'weather-conditions':
                                         if t.get('weather-summary') is not None:
                                             return t.get('weather-summary')
-                                        
+
+

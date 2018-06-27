@@ -8,7 +8,7 @@ import random
 import pygame
 
 surface = None
-
+sound_available = False
 
 def setup(width=800, height=600, title=''):
     '''
@@ -30,12 +30,7 @@ def setup(width=800, height=600, title=''):
     text_color = (255, 0, 0)
     image = None
 
-    # pre initialise pyGame's audio engine to avoid sound latency issues
-    pygame.mixer.pre_init(frequency=44100)
     pygame.init()
-
-    # initialise pyGame's audio engine
-    pygame.mixer.init()
 
     # Create the game surface
     surface = pygame.display.set_mode(window_size)
@@ -54,15 +49,23 @@ def handle_events():
     for event in pygame.event.get():
         pass
 
-
 def play_sound(filepath):
     '''
     Plays the specified sound file
     '''
-    pygame.mixer.init()
+    global sound_available
+
+    try:
+    # pre initialise pyGame's audio engine to avoid sound latency issues
+        pygame.mixer.pre_init(frequency=44100)
+        pygame.mixer.init()
+    except:
+        print("There is no sound provision on this computer.")
+        print("Sound commands will not produce any output")
+        return
+
     sound = pygame.mixer.Sound(filepath)
     sound.play()
-
 
 def display_image(filepath):
     '''
