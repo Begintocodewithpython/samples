@@ -66,6 +66,13 @@ def play_sound(filepath):
     sound = pygame.mixer.Sound(filepath)
     sound.play()
 
+def play_note(note):
+    ''' 
+    Plays the note sound file 1-12
+    '''
+    filepath = str('MusicNotes\\' + str(note) + '.wav')
+    play_sound(filepath)
+
 def display_image(filepath):
     '''
     Displays the image from the given filepath

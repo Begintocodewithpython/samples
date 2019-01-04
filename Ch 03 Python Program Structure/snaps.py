@@ -5,10 +5,55 @@
 
 import time
 import random
-import pygame
+import sys
+import urllib.request
 
+pygame_available = False
 surface = None
 sound_available = False
+
+def install_pygame():
+    print("Installing pygame")
+
+    version = sys.version_info
+    if version[0] != 3:
+        print("Must have version 3 of Python")
+        return False
+
+    try:
+        import pip
+        pip.main(['install', 'pygame'])
+        
+    except ImportError:
+        print("pip is not installed on this machine")
+        print("Check your Python installation")
+        return False
+
+    print("Pygame installed")
+    return True
+
+def setup_pygame():
+    global pygame_available
+
+    if pygame_available:
+        return
+    try:
+        import pygame
+        pygame_available = True
+    except ImportError:
+        if not install_pygame():
+            print("pygame installation failed")
+        try:
+            import pygame
+            pygame_available = True    
+        except ImportError:
+            print("The installation of pygame didn't work.")
+            print("Remove and re-install Python and try again")
+
+setup_pygame()
+
+if pygame_available:
+    import pygame
 
 def setup(width=800, height=600, title=''):
     '''
@@ -19,7 +64,13 @@ def setup(width=800, height=600, title=''):
     global text_color
     global image
     global surface
-
+    global pygame_available
+    
+    # Don't initialise if we don't have pygame
+    if not pygame_available:
+        print("Pygame is not installed on this machine")
+        return
+    
     # Don't initialise if we already have
 
     if surface is not None:
@@ -29,7 +80,14 @@ def setup(width=800, height=600, title=''):
     back_color = (255, 255, 255)
     text_color = (255, 0, 0)
     image = None
+    pygame.init()
 
+    # Create the game surface
+    surface = pygame.display.set_mode(window_size)
+    pygame.init()
+
+    # Create the game surface
+    surface = pygame.display.set_mode(window_size)
     pygame.init()
 
     # Create the game surface
@@ -53,6 +111,14 @@ def play_sound(filepath):
     '''
     Plays the specified sound file
     '''
+    global sound_available
+    
+    setup_pygame()
+    
+    # Don't initialise if we don't have pygame
+    if not pygame_available:
+        print("Pygame is not installed on this machine")
+        return
 
     try:
     # pre initialise pyGame's audio engine to avoid sound latency issues
