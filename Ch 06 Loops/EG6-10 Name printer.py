@@ -1,4 +1,4 @@
 # EG6-10 Name printer
-names=('Rob','Mary','David','Jenny','Chris','Imogen')
-for •name  in •names :
+names= input("write your name")
+for word  in •names :
     print(name)
