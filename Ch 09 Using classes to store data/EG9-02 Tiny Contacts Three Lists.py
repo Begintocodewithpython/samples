@@ -1,67 +1,86 @@
-# EG9-02 Tiny Contacts Three Lists
+import contact
+import addressBook
+import re
+from sys import exit
+import random
 
-from BTCInput import *
 
-# Create the lists to store contact information
-names=[]
-addresses=[]
-telephones=[]
+__author__ = 'Muhammad Arslan <rslnkrmt2552@gmail.com>'
 
-def new_contact():
-    '''
-    Reads in a new contact and stores it
-    '''
-    print('Create new contact')
-    names.append(read_text('Enter the contact name: '))
-    addresses.append(read_text('Enter the contact address: '))
-    telephones.append(read_text('Enter the contact phone: '))
+app = addressBook.addressBook(str(raw_input("Enter name of book  (Will be created if doesn't exist) \n> ")))
+main_menu = '\n1. Show all contacts.\n2. Add contact.\n3. Search.\n4. Delete a contact.\n5.Update contact.\n6. Exit\n\n>'
 
-def find_contact():
-    '''
-    Reads in a name to search for and then displays
-    the content information for that name or a
-    message indicating that the name was not found
-    '''
-    print('Find contact')
-    search_name = read_text('Enter the contact name: ')
-    # remove any whitespace from around the search name
-    search_name = search_name.strip()
-    # convert the search name to lower case
-    search_name = search_name.lower()
-    # Counter for the name position
-    name_position=0
-    for name in names:
-        # remove any ny whitespace from around the name
-        name=name.strip()
-        # convert the name to lower case
-        name = name.lower()
-        # see if the names match
-        if name==search_name:
-            # if the names match, end the loop
+def exitProg():
+    exitMessages = ['You have my permission to die.']
+    print random.choice(exitMessages)
+    exit(0)
+
+def getOption(prompt):
+    inp = raw_input(prompt)
+    try:
+        inp = int(inp)
+    except ValueError:
+        print 'You should have selected a proper option.'
+        return 13
+    return inp
+
+
+def showContacts():
+    print 'show all'
+
+def addContact():
+    flag = 13
+    while flag == 13:
+        exp = map(lambda x: re.compile(x), [r'^([a-zA-Z]+)$', r'^(\+)?(\d)+$', r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"])
+
+        fName = str(raw_input('Enter first name : ')).strip()
+        while not exp[0].match(fName):
+            fName = str(raw_input('\nWrong Input\nEnter (proper) first name : ')).strip()
+
+        lName = str(raw_input('Enter last name : ')).strip()
+        while not exp[0].match(lName):
+            lName = str(raw_input('\nWrong Input\nEnter (proper) last name : ')).strip()
+
+        pNum = str(raw_input('Enter phone number : ')).strip()
+        while not exp[1].match(pNum):
+            pNum = str(raw_input('\nWrong Input\nEnter (proper) number : ')).strip()
+
+        email = str(raw_input('Enter email(Blank for none) : ')).strip()
+        while not exp[2].match(email):
+            if not email:
+                break
+            email = str(raw_input('\nWrong Input\nEnter (proper) email : ')).strip()
+
+        print app.addEntry(contact.Contact(fName, lName, pNum, email))
+
+        while (flag < 1) or (flag > 3):
+            flag = getOption('\n1. Add another.\n2. Go to main menu\n3. Exit.\n\n> ')
+        if flag == 2:
             break
-        # move the position down to the next name
-        name_position=name_position+1
+        elif flag == 3:
+            exitProg()
+        else:
+            flag = 13
 
-    if name_position < len(names):
-        # Found a name
-        print('Name: ',names[name_position])
-        print('Address: ',addresses[name_position])
-        print('Telephone: ',telephones[name_position])
-    else:              
-        print('This name was not found.')
+def searchContact():
+    print 'search'
 
-menu='''Tiny Contacts
+def removeContact():
+    name = str(raw_input('Enter first name of the contact: '))
+    print app.removeEntry(name)
 
-1. New Contact
-2. Find Contact
-3. Exit program
+def updateContact():
+    name = str(raw_input('Enter the first name of the contact: '))
+    msg, cont = app.searchEntry(name)
+    print msg
 
-Enter your command: '''
+
+
+funcs = [showContacts, addContact, searchContact, removeContact, updateContact, exitProg]
+
 while True:
-    command=read_int_ranged(prompt=menu,min_value=1,max_value=3)
-    if command==1:
-        new_contact()
-    elif command==2:
-        find_contact()
-    elif command==3:
-        break
+    inp = getOption(main_menu)
+    while inp < 1 or inp > 6:
+        print 'Input a proper number, moron.'
+        inp = getOption(main_menu)
+    funcs[inp - 1]()
