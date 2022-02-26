@@ -27,7 +27,7 @@ import snaps
 
 To make snaps work you just have to have the snaps program in the same folder as your program. 
 ### Videos
-There are some videos which take you through installing Python and Snaps. You can find them [here] (https://www.youtube.com/playlist?list=PL7zNOp_WVLyUZ5XoCP2w0Uhy02PnX5W9m).
+There are some videos which take you through installing Python and Snaps. You can find them [here](https://www.youtube.com/playlist?list=PL7zNOp_WVLyUZ5XoCP2w0Uhy02PnX5W9m).
 ### Using the keyboard with Snaps
 There have been some reports of the keyboard reading function in Snaps not working correctly when you run your Python program from within an IDE such as pyCharm or IDLE. If you find the keyboard to be unresponsive, try running the Python program directly in Python, rather than inside an IDE. Check on page 63 for details of how to run a program from the desktop.
 # Microsoft Certified Professional
